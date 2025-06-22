@@ -105,13 +105,17 @@ export default function RecipesPage() {
                   />
                 )}
                 <div className="p-6">
-                  <h2 className="text-2xl font-semibold mb-2">{recipe.name}</h2>
+                  <h2 className="text-2xl text-black font-semibold mb-2">
+                    {recipe.name}
+                  </h2>
                   <p className="text-gray-600 mb-4">
                     Servings: {recipe.servings} | Prep/Cook Time:{' '}
                     {recipe.cookingTime} mins
                   </p>
                   <div className="mb-4">
-                    <h3 className="text-lg font-medium mb-2">Ingredients:</h3>
+                    <h3 className="text-lg text-black font-medium mb-2">
+                      Ingredients:
+                    </h3>
                     <ul className="list-disc list-inside text-gray-700">
                       {recipe.ingredients.map((ing, index) => (
                         <li key={index}>
@@ -121,7 +125,9 @@ export default function RecipesPage() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium mb-2">Instructions:</h3>
+                    <h3 className="text-lg text-black font-medium mb-2">
+                      Instructions:
+                    </h3>
                     <ol className="list-decimal list-inside text-gray-700">
                       {recipe.instructions.map((step, index) => (
                         <li key={index}>{step}</li>
@@ -142,7 +148,7 @@ export default function RecipesPage() {
                       ))}
                     </div>
                   )}
-                  <p className="text-sm text-gray-500 mt-4">
+                  <p className="text-sm text-right text-gray-500 mt-4">
                     Created by User ID: {recipe.userId}
                   </p>
                 </div>
