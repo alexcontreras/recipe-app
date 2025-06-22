@@ -93,10 +93,8 @@ export default function RecipesPage() {
             <Link
               key={recipe.id}
               href={`/recipes/${recipe.id}`}
-              className="block">
-              <div
-                key={recipe.id}
-                className="bg-white shadow-lg rounded-lg overflow-hidden">
+              className="block h-full">
+              <div className="flex flex-col h-full bg-white shadow-lg rounded-lg overflow-hidden">
                 {recipe.imageUrl && (
                   <Image
                     src={recipe.imageUrl}
@@ -104,7 +102,7 @@ export default function RecipesPage() {
                     className="w-full h-48 object-cover"
                   />
                 )}
-                <div className="p-6">
+                <div className="flex flex-col flex-grow p-6">
                   <h2 className="text-2xl text-black font-semibold mb-2">
                     {recipe.name}
                   </h2>
@@ -124,7 +122,7 @@ export default function RecipesPage() {
                       ))}
                     </ul>
                   </div>
-                  <div>
+                  <div className="flex-grow">
                     <h3 className="text-lg text-black font-medium mb-2">
                       Instructions:
                     </h3>
