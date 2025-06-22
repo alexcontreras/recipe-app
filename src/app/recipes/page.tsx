@@ -90,59 +90,64 @@ export default function RecipesPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recipes.map((recipe) => (
-            <div
+            <Link
               key={recipe.id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden">
-              {recipe.imageUrl && (
-                <Image
-                  src={recipe.imageUrl}
-                  alt={recipe.name}
-                  className="w-full h-48 object-cover"
-                />
-              )}
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold mb-2">{recipe.name}</h2>
-                <p className="text-gray-600 mb-4">
-                  Servings: {recipe.servings} | Prep/Cook Time:{' '}
-                  {recipe.cookingTime} mins
-                </p>
-                <div className="mb-4">
-                  <h3 className="text-lg font-medium mb-2">Ingredients:</h3>
-                  <ul className="list-disc list-inside text-gray-700">
-                    {recipe.ingredients.map((ing, index) => (
-                      <li key={index}>
-                        {ing.quantity} {ing.unit} {ing.name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium mb-2">Instructions:</h3>
-                  <ol className="list-decimal list-inside text-gray-700">
-                    {recipe.instructions.map((step, index) => (
-                      <li key={index}>{step}</li>
-                    ))}
-                  </ol>
-                </div>
-                {recipe.categories && recipe.categories.length > 0 && (
-                  <div className="mt-4">
-                    <span className="text-sm font-medium text-gray-500">
-                      Categories:{' '}
-                    </span>
-                    {recipe.categories.map((category, index) => (
-                      <span
-                        key={index}
-                        className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                        {category}
-                      </span>
-                    ))}
-                  </div>
+              href={`/recipes/${recipe.id}`}
+              className="block">
+              <div
+                key={recipe.id}
+                className="bg-white shadow-lg rounded-lg overflow-hidden">
+                {recipe.imageUrl && (
+                  <Image
+                    src={recipe.imageUrl}
+                    alt={recipe.name}
+                    className="w-full h-48 object-cover"
+                  />
                 )}
-                <p className="text-sm text-gray-500 mt-4">
-                  Created by User ID: {recipe.userId}
-                </p>
+                <div className="p-6">
+                  <h2 className="text-2xl font-semibold mb-2">{recipe.name}</h2>
+                  <p className="text-gray-600 mb-4">
+                    Servings: {recipe.servings} | Prep/Cook Time:{' '}
+                    {recipe.cookingTime} mins
+                  </p>
+                  <div className="mb-4">
+                    <h3 className="text-lg font-medium mb-2">Ingredients:</h3>
+                    <ul className="list-disc list-inside text-gray-700">
+                      {recipe.ingredients.map((ing, index) => (
+                        <li key={index}>
+                          {ing.quantity} {ing.unit} {ing.name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-medium mb-2">Instructions:</h3>
+                    <ol className="list-decimal list-inside text-gray-700">
+                      {recipe.instructions.map((step, index) => (
+                        <li key={index}>{step}</li>
+                      ))}
+                    </ol>
+                  </div>
+                  {recipe.categories && recipe.categories.length > 0 && (
+                    <div className="mt-4">
+                      <span className="text-sm font-medium text-gray-500">
+                        Categories:{' '}
+                      </span>
+                      {recipe.categories.map((category, index) => (
+                        <span
+                          key={index}
+                          className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                          {category}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <p className="text-sm text-gray-500 mt-4">
+                    Created by User ID: {recipe.userId}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}
